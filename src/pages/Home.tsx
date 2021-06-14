@@ -4,12 +4,10 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  createStyles,
   Grid,
   IconButton,
   Snackbar,
   Typography,
-  withStyles,
   Zoom,
 } from "@material-ui/core";
 
@@ -18,12 +16,7 @@ import { IItem } from "../types";
 import { list, vote as voteItem } from "../api/api-item";
 import Loading from "../components/global/Loading";
 import EmptyState from "../components/global/EmptyState";
-import {
-  Favorite,
-  FavoriteBorder,
-  FavoriteOutlined,
-  Replay,
-} from "@material-ui/icons";
+import { Favorite, FavoriteBorder, Replay } from "@material-ui/icons";
 
 /**
  * Home Component

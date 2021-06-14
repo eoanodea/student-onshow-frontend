@@ -3,8 +3,6 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 import App from "./App";
 
-import { config } from "./config/config";
-
 /**
  * Render the application to the DOM
  */

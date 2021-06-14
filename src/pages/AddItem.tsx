@@ -13,7 +13,7 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import { IHistoryProps, IItem } from "../types";
+import { IHistoryProps } from "../types";
 import { create } from "../api/api-item";
 import { ArrowBack, Check, Error } from "@material-ui/icons";
 import EmptyState from "../components/global/EmptyState";

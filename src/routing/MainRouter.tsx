@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 import { Grid } from "@material-ui/core";
 
@@ -20,7 +20,7 @@ const MainRouter = () => {
    * If set to true, displays routes that only authenticated users should see
    * If not, displays login / register
    */
-  const [isAuthed, setIsAuthed] = React.useState(false);
+  const isAuthed = false;
   const history = useHistory();
   /**
    * Check if the user is authenticaed
