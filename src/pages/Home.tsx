@@ -98,7 +98,7 @@ const Home = () => {
                 <Card>
                   <CardMedia
                     component="iframe"
-                    style={{ border: "none" }}
+                    style={{ border: "none", overflow: "unset" }}
                     width="400"
                     height="400"
                     src={`https://editor.p5js.org/${item.username}/embed/${item.link}`}

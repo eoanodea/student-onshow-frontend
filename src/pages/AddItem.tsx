@@ -65,13 +65,18 @@ const AddItem = ({ history, classes }: IProps) => {
   const handleValidation = () => {
     let passed = true;
 
-    if (author.length < 5) {
-      setAuthorError("Author must be at least 5 characters");
+    if (author.length < 3) {
+      setAuthorError("Author must be at least 4 characters");
       passed = false;
     } else setAuthorError("");
 
     if (link.length < 5) {
       setLinkError("Link must be at least 5 characters");
+      passed = false;
+    } else setLinkError("");
+
+    if (!link.includes("http")) {
+      setLinkError("Link must be a valid link");
       passed = false;
     } else setLinkError("");
 

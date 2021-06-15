@@ -17,11 +17,16 @@ import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 let theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#ff9100",
+      main: "#ff5006",
     },
     secondary: {
-      main: "#42a5f5",
+      main: "#410099",
     },
+    background: {
+      default: "#0B1315",
+      paper: "#171F21",
+    },
+    type: "dark",
   },
   typography: {
     fontFamily: ["quicksand", "sans-serif"].join(","),
@@ -30,30 +35,30 @@ let theme = createMuiTheme({
       fontWeight: 800,
       fontSize: "3.052rem",
       margin: "3rem 0 1.38rem",
-      color: "#4e4e4e",
+      // color: "#4e4e4e",
     },
     h2: {
       fontWeight: 700,
       fontSize: "2.441rem",
       margin: "3rem 0 1.38rem",
-      color: "#4e4e4e",
+      // color: "#4e4e4e",
     },
     h3: {
       fontWeight: 700,
       fontSize: "1.953rem",
       margin: "3rem 0 1.38rem",
-      color: "#4e4e4e",
+      // color: "#4e4e4e",
     },
     h4: {
       fontWeight: 700,
       fontSize: "1.563rem",
       margin: "3rem 0 1.38rem",
-      color: "#4e4e4e",
+      // color: "#4e4e4e",
     },
     h5: {
       fontWeight: 700,
       fontSize: "1.25rem",
-      color: "#4e4e4e",
+      // color: "#4e4e4e",
     },
   },
   overrides: {

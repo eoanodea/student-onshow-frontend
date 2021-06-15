@@ -6,8 +6,8 @@ import React from "react";
 /**
  * Component Library imports
  */
-import { AppBar, Button, IconButton, Toolbar } from "@material-ui/core";
-import { Home } from "@material-ui/icons";
+import { AppBar, Button, Toolbar } from "@material-ui/core";
+import { Add } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
 /**
@@ -18,11 +18,16 @@ const Header = () => {
     <React.Fragment>
       <AppBar position="sticky">
         <Toolbar style={{ justifyContent: "space-between" }}>
-          <IconButton aria-label="Home" component={Link} to="/">
-            <Home />
-          </IconButton>
+          <Link to="/">
+            <img
+              src={process.env.PUBLIC_URL + "/logo.png"}
+              alt="Creative Computing Logo"
+              width="100"
+              style={{ padding: "10px" }}
+            />
+          </Link>
           {!localStorage.getItem("existing") && (
-            <Button component={Link} to="/add">
+            <Button component={Link} to="/add" endIcon={<Add />}>
               Add
             </Button>
           )}
