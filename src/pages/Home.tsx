@@ -28,6 +28,7 @@ const Home = () => {
   const [error, setError] = useState("");
 
   const [votedId, setVotedId] = useState("");
+  const [voting, setVoting] = useState(false);
   const [message, setMessage] = React.useState("");
 
   const load = useCallback(() => {
@@ -50,18 +51,29 @@ const Home = () => {
     load();
   }, [load]);
 
-  const vote = (id: string) => {
-    voteItem(id)
+  const vote = (id: string, unvote: boolean = false) => {
+    setVoting(true);
+    voteItem(id, unvote)
       .then((res) => {
         if (res.error) {
           setMessage("Could not vote for item! " + res.error);
         }
-        setVotedId(res.data._id);
-        localStorage.setItem("voted", res.data._id);
-        setMessage("Voted for item!");
+        setVoting(false);
+        if (res.data.unvote === "true") {
+          setVotedId("");
+          localStorage.removeItem("voted");
+          setMessage("Removed vote for item!");
+        } else {
+          setVotedId(res.data._id);
+          localStorage.setItem("voted", res.data.item._id);
+          setMessage("Voted for item!");
+        }
       })
       .catch((err) => {
-        setMessage(typeof err === "string" ? err : "Could not vote for item");
+        setVoting(false);
+        setMessage(
+          typeof err === "string" ? err : "Error: Could not vote for item"
+        );
       });
   };
 
@@ -100,11 +112,20 @@ const Home = () => {
                     {(localStorage.getItem("voted") &&
                       localStorage.getItem("voted") === item._id) ||
                     votedId === item._id ? (
-                      <IconButton aria-label="You have voted for this item">
+                      <IconButton
+                        onClick={() =>
+                          vote(item._id ? item._id : item.link, true)
+                        }
+                        disabled={voting}
+                        aria-label="Unvote this item"
+                      >
                         <Favorite />
                       </IconButton>
                     ) : (
                       <IconButton
+                        disabled={
+                          voting || localStorage.getItem("voted") !== null
+                        }
                         aria-label="Vote for this item"
                         onClick={() => vote(item._id ? item._id : item.link)}
                       >

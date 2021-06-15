@@ -92,9 +92,9 @@ export const update = async (id: string, body: IItem) => {
  *
  * @param {id: String}
  */
-export const vote = async (id: string) => {
+export const vote = async (id: string, unvote: boolean) => {
   try {
-    const response = await fetch(`${prefix}/vote/${id}`, {
+    const response = await fetch(`${prefix}/vote/${id}/${unvote}`, {
       method: "PUT",
       headers: {
         Accept: "application/json",
